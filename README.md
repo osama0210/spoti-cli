@@ -23,3 +23,30 @@ You can reach us at our school emails:
 Ryzex: 1208935@student.roc-nijmegen.nl
 
 Osama: 1206995@student.roc-nijmegen.nl
+
+
+--------------------
+📌 Work Rules
+🔀 Branch Strategy (Gitflow)
+We use the Gitflow workflow:
+
+main → stable versions
+develop → active development
+feature/[name] → new features
+
+📝 Commit Convention (Angular-style)
+We follow the Conventional Commits format, for example:
+
+feat: add search functionality
+fix: fix bug when playing music
+chore: update documentation
+
+🔃 Pull Request (PR) Rules
+Every PR must:
+
+Have a clear title
+Include a meaningful description
+Contain a link to a related Trello card or task
+
+✅ CI Requirements
+All tests must pass before a PR can be merged into develop or main.
