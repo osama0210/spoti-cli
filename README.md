@@ -16,3 +16,10 @@ Clone or download this project and start experimenting!
 
 👥 Who Maintains and Contributes to the Project
 This project is maintained by me and my schoolmate Osama Alasmi. We created it as a learning experience to grow our programming skills together.
+
+📬 Contact
+You can reach us at our school emails:
+
+Ryzex: 1208935@student.roc-nijmegen.nl
+
+Osama: 1206995@student.roc-nijmegen.nl
