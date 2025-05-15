@@ -15,7 +15,7 @@ Clone or download this project and start experimenting!
 
 
 👥 Who Maintains and Contributes to the Project
-This project is maintained by me and my schoolmate Osama Alasmi. We created it as a learning experience to grow our programming skills together.
+This project is maintained by Taifik Abed and Osama Alasmi. We created it as a learning experience to grow our programming skills together.
 
 📬 Contact
 You can reach us at our school emails:
@@ -50,3 +50,7 @@ Contain a link to a related Trello card or task
 
 ✅ CI Requirements
 All tests must pass before a PR can be merged into develop or main.
+
+--------------------
+
+Trello Board: https://trello.com/invite/b/681c865c5512e81340ca4c89/ATTId2b227ea85cf46288d4472a8d9277802D9EA34E4/spoticli
