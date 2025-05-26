@@ -24,6 +24,8 @@ Ryzex: 1208935@student.roc-nijmegen.nl
 
 Osama: 1206995@student.roc-nijmegen.nl
 
+Tamzid: 1206072@student.roc-nijmegen.nl
+
 
 --------------------
 📌 Work Rules
