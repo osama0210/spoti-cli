@@ -11,12 +11,29 @@ public class Client
     
     public void AddPlaylist()
     {
-        activeUser.Library.AddPlaylist(new Playlist("eerste playlist", activeUser, true));
-        activeUser.Library.AddPlaylist(new Playlist("eerste playlist", activeUser, true));
-
+        Console.WriteLine("Enter playlist name: ");
+        String title = Console.ReadLine();
+        
+        Console.WriteLine("Make playlist public? (y/n):");
+        string isPublicInput = Console.ReadLine();
+        bool isPublic;
+        if (isPublicInput == "y")
+        {
+            isPublic = true;
+        }
+        else
+        {
+            isPublic = false;
+        }
+        activeUser.Library.AddPlaylist(new Playlist(title, activeUser, isPublic));
     }
 
-    public void showPlaylists()
+    public void ShowLibrary()
+    {
+        activeUser.Library.ShowLibrary();
+    }
+
+    public void ShowPlaylists()
     {
         activeUser.Library.ShowPlaylists();
     }

@@ -15,6 +15,28 @@ public class Library
     public List<Album> Albums { get; set; }
     public List<Song> LikedSongs { get; set; }
 
+    public void ShowLibrary()
+    {
+        Console.WriteLine("Your Playlists:");
+        foreach (var playlist in playlists)
+        {
+            Console.WriteLine($"= {playlist.Title}");
+        }
+        
+        Console.WriteLine("\nYour Albums:");
+        foreach (var album in albums)
+        {
+            Console.WriteLine($"- {album.Title}");
+        }
+    }
+    
+    public void ShowPlaylists()
+    {
+        foreach (var playlist in playlists)
+        {
+            Console.WriteLine(playlist);
+        }
+    }
     public void AddPlaylist(Playlist playlist)
     {
         playlists.Add(playlist);
@@ -33,13 +55,5 @@ public class Library
     public void RemoveAlbum(Album album)
     {
         albums.Remove(album);
-    }
-
-    public void ShowPlaylists()
-    {
-        foreach (var playlist in Playlists)
-        {
-            Console.WriteLine(playlist);
-        }
     }
 }

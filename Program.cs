@@ -7,16 +7,13 @@ class jetbProgram
         Person newUser = new Person();
         Client client = new Client(newUser);
         
-        client.AddPlaylist();
-        client.showPlaylists();
-
 
         bool isRunning = true;
         while (isRunning)
         {
-            Console.WriteLine("=== SpotiCLI Menu ===");
-            Console.WriteLine("1. Manage playlists");
-            Console.WriteLine("2. Show all playlists");
+            Console.WriteLine("=== SpotiCLI Main Menu ===");
+            Console.WriteLine("1. Show my library");
+            Console.WriteLine("2. Add a playlist");
             Console.WriteLine("3. View albums");
             Console.WriteLine("4. Exit");
             Console.Write("Choose an option: ");
@@ -26,38 +23,23 @@ class jetbProgram
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine(" Manage playlists (coming soon)");
-                    bool playlistmenu = true;
-                    while (playlistmenu)
-                    {
-                        Console.WriteLine("=== SpotiCLI Playlist Manager ===");
-                        Console.WriteLine("1. Show my library");
-                        Console.WriteLine("2. Manage my playlists");
-                        Console.WriteLine("3. Add a playlists");
-                        Console.WriteLine("4. Delete a playlists");
-                        Console.WriteLine("5. Back to main menu");
-                        
-                        String playlistChoise = Console.ReadLine();
-                    }
+                    client.ShowLibrary();
                     break;
-                
-                
 
                 case "2":
-                    Console.WriteLine(" Showing all playlists (not implemented yet)");
+                    client.AddPlaylist();
                     break;
 
                 case "3":
-                    Console.WriteLine(" Viewing albums (not implemented yet)");
                     break;
 
                 case "4":
-                    Console.WriteLine("Exiting SpotiCLI...");
+                    Console.WriteLine("Goodbye!");
                     isRunning = false;
                     break;
 
                 default:
-                    Console.WriteLine(" X Invalid option. Try again.");
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
 
