@@ -4,7 +4,12 @@ class jetbProgram
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("develop branch");
+        Person newUser = new Person();
+        Client client = new Client(newUser);
+        
+        client.AddPlaylist();
+        client.showPlaylists();
+
 
         bool isRunning = true;
         while (isRunning)
@@ -26,10 +31,11 @@ class jetbProgram
                     while (playlistmenu)
                     {
                         Console.WriteLine("=== SpotiCLI Playlist Manager ===");
-                        Console.WriteLine("1. Manage my playlists");
-                        Console.WriteLine("2. Add a playlists");
-                        Console.WriteLine("3. Delete a playlists");
-                        Console.WriteLine("4. Back to main menu");
+                        Console.WriteLine("1. Show my library");
+                        Console.WriteLine("2. Manage my playlists");
+                        Console.WriteLine("3. Add a playlists");
+                        Console.WriteLine("4. Delete a playlists");
+                        Console.WriteLine("5. Back to main menu");
                         
                         String playlistChoise = Console.ReadLine();
                     }
@@ -71,7 +77,6 @@ class jetbProgram
         song.album = "2020 vibes";
         song.lyrics =
             "She say, “Do you love me?” I tell her, “Only partly”\nI only love my bed and my mama, I'm sorry\n";
-        collection.AddSong(song);
         
         
         
@@ -80,8 +85,4 @@ class jetbProgram
 
 
     }
-    
-    
-    
-    
 }
