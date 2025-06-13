@@ -11,7 +11,7 @@ class jetbProgram
         bool isRunning = true;
         while (isRunning)
         {
-            Console.WriteLine("=== SpotiCLI Main Menu ===");
+            Console.WriteLine("\n=== SpotiCLI Main Menu ===");
             Console.WriteLine("1. Show my library");
             Console.WriteLine("2. Add a playlist");
             Console.WriteLine("3. View albums");

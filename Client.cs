@@ -28,6 +28,11 @@ public class Client
         activeUser.Library.AddPlaylist(new Playlist(title, activeUser, isPublic));
     }
 
+    public void RemovePlaylist()
+    {
+        activeUser.Library.RemovePlaylist();
+    }
+
     public void ShowLibrary()
     {
         activeUser.Library.ShowLibrary();

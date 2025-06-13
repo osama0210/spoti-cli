@@ -17,16 +17,30 @@ public class Library
 
     public void ShowLibrary()
     {
-        Console.WriteLine("Your Playlists:");
-        foreach (var playlist in playlists)
+        Console.WriteLine("\nYour Playlists:");
+        if (playlists.Count == 0)
         {
-            Console.WriteLine($"= {playlist.Title}");
+            Console.WriteLine("There are no playlists.");
+        }
+        else
+        {
+            foreach (var playlist in playlists)
+            {
+                Console.WriteLine($"{playlist.Title}");
+            }
         }
         
         Console.WriteLine("\nYour Albums:");
-        foreach (var album in albums)
+        if (albums.Count == 0)
         {
-            Console.WriteLine($"- {album.Title}");
+            Console.WriteLine("There are not albums");
+        }
+        else
+        {
+            foreach (var album in albums)
+            {
+                Console.WriteLine($"- {album.Title}");
+            }
         }
     }
     
@@ -45,15 +59,5 @@ public class Library
     public void RemovePlaylist(Playlist playlist)
     {
         playlists.Remove(playlist);
-    }
-
-    public void AddAlbum(Album album)
-    {
-        albums.Add(album);
-    }
-
-    public void RemoveAlbum(Album album)
-    {
-        albums.Remove(album);
     }
 }
