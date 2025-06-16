@@ -27,10 +27,10 @@ public class SongCollection
     {
         foreach (Song song in this.songs)
         {
-            Console.WriteLine(song.title);
+            /*Console.WriteLine(song.title);
             Console.WriteLine(song.lyrics);
             Console.WriteLine(song.album);
-            Console.WriteLine(song.artist);
+            Console.WriteLine(song.artist);*/
         }
     }
 }
