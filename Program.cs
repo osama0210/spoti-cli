@@ -49,21 +49,7 @@ class jetbProgram
         
         // Hier maak ik een nieuwe SongCollection aan om liedjes op te slaan en te beheren.
         SongCollection collection = new SongCollection();
-
         
-        // Hier voeg ik een nieuw liedje toe aan de collectie met titel, artiest en album en lyrics{optioneel}.
-        Song song = new Song();
-        Console.WriteLine("Currently playing Song is: ");
-        song.title = "Gods plan";
-        song.artist = "Drake";
-        song.album = "2020 vibes";
-        song.lyrics =
-            "She say, “Do you love me?” I tell her, “Only partly”\nI only love my bed and my mama, I'm sorry\n";
-        
-        
-        
-        // Laat alle liedjes in de collectie zien in de console, inclusief titel, artiest, album en lyrics.
-        collection.ShowSongs();
 
 
     }
