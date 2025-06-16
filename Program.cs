@@ -16,6 +16,7 @@ class jetbProgram
             Console.WriteLine("2. Add a playlist");
             Console.WriteLine("3. View albums");
             Console.WriteLine("4. Exit");
+            Console.WriteLine("99. delete playlist");
             Console.Write("Choose an option: ");
 
             string choice = Console.ReadLine();
@@ -37,6 +38,9 @@ class jetbProgram
                     Console.WriteLine("Goodbye!");
                     isRunning = false;
                     break;
+                case "99":
+                    client.RemovePlaylistByTitle();
+                    break;
 
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
@@ -44,13 +48,6 @@ class jetbProgram
             }
 
         }
-            
         
-        
-        // Hier maak ik een nieuwe SongCollection aan om liedjes op te slaan en te beheren.
-        SongCollection collection = new SongCollection();
-        
-
-
     }
 }

@@ -56,8 +56,17 @@ public class Library
         playlists.Add(playlist);
     }
 
-    public void RemovePlaylist(Playlist playlist)
+    public void RemovePlaylistByTitle (String title)
     {
-        playlists.Remove(playlist);
+        Playlist playlistRemove = playlists.FirstOrDefault(p => p.Title == title);
+        if (playlistRemove != null)
+        {
+            playlists.Remove(playlistRemove);
+            Console.WriteLine($"Playlist {title} has been removed");
+        }
+        else
+        {
+            Console.WriteLine($"there is no playlist with the name {title}");
+        }
     }
 }
