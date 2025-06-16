@@ -28,9 +28,11 @@ public class Client
         activeUser.Library.AddPlaylist(new Playlist(title, activeUser, isPublic));
     }
 
-    public void RemovePlaylist()
+    public void RemovePlaylistByTitle()
     {
-        activeUser.Library.RemovePlaylist();
+        Console.WriteLine("Type playlist name to remove");
+        string title = Console.ReadLine();
+        activeUser.Library.RemovePlaylistByTitle(title);
     }
 
     public void ShowLibrary()

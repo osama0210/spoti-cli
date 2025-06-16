@@ -16,6 +16,7 @@ class jetbProgram
             Console.WriteLine("2. Add a playlist");
             Console.WriteLine("3. View albums");
             Console.WriteLine("4. Exit");
+            Console.WriteLine("99. delete playlist");
             Console.Write("Choose an option: ");
 
             string choice = Console.ReadLine();
@@ -36,6 +37,9 @@ class jetbProgram
                 case "4":
                     Console.WriteLine("Goodbye!");
                     isRunning = false;
+                    break;
+                case "99":
+                    client.RemovePlaylistByTitle();
                     break;
 
                 default:

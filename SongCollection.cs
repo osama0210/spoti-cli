@@ -9,7 +9,11 @@ public class SongCollection
     private String title;
     public List<Song> songs = new List<Song>();
 
-    public String Title { get; set; }
+    public String Title
+    {
+        get { return title;}
+        set { title = value; }
+    }
     
     public void PlayAll()
     {
