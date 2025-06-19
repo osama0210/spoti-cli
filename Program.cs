@@ -6,7 +6,15 @@ class jetbProgram
     {
         Person newUser = new Person();
         Client client = new Client(newUser);
-        
+        Artist artist = new Artist();
+        //Album album = new Album();
+        Library library = new Library();
+        //string[] artists = { "T" };
+        //Album[] albums = { ("T","A","B","D") };
+        //artist.artistlist.AddRange(artists);
+        //album.albumsList.AddRange(albums);
+        //library.Albums.AddRange(albums);
+
 
         bool isRunning = true;
         while (isRunning)
@@ -23,7 +31,7 @@ class jetbProgram
             switch (choice)
             {
                 case "1":
-                    client.ShowLibraryMenu();
+                    client.ShowLibrary();
                     break;
 
                 case "2":
