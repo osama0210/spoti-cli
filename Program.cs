@@ -13,10 +13,9 @@ class jetbProgram
         {
             Console.WriteLine("\n=== SpotiCLI Main Menu ===");
             Console.WriteLine("1. Show my library");
-            Console.WriteLine("2. Add a playlist");
-            Console.WriteLine("3. View albums");
+            Console.WriteLine("2. Explore Albums");
+            Console.WriteLine("3. Friends List");
             Console.WriteLine("4. Exit");
-            Console.WriteLine("99. delete playlist");
             Console.Write("Choose an option: ");
 
             string choice = Console.ReadLine();
@@ -24,7 +23,7 @@ class jetbProgram
             switch (choice)
             {
                 case "1":
-                    client.ShowLibrary();
+                    client.ShowLibraryMenu();
                     break;
 
                 case "2":
