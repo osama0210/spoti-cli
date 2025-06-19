@@ -1,7 +1,12 @@
 namespace spotiCLI;
 
 public class Library
-{
+{  
+    private List<Artist> artistlist = new List<Artist>
+    {
+        new Artist()
+    };
+    public String [] artistlist2 = { "Drake" };
     private List<Playlist> playlists = new List<Playlist>();
     private List<Album> albums = new List<Album>();
     private List<Song> likedSongs = new List<Song>();
@@ -11,8 +16,13 @@ public class Library
         get { return playlists; }
         set { playlists = value; }
     }
+    
+    public List<Album> Albums
+    {
+        get { return albums; }
+        set { albums = value; }
+    }
 
-    public List<Album> Albums { get; set; }
     public List<Song> LikedSongs { get; set; }
 
     public void ShowLibrary()
@@ -39,7 +49,7 @@ public class Library
         {
             foreach (var album in albums)
             {
-                Console.WriteLine($"- {album.Title}");
+                Console.WriteLine($"-{album.albumName} {album.ReleaseDate}");
             }
         }
     }
@@ -55,6 +65,11 @@ public class Library
     {
         playlists.Add(playlist);
     }
+    
+    public void AddAlbum(Album album)
+    {
+        albums.Add(album);
+    }
 
     public void RemovePlaylistByTitle (String title)
     {
@@ -69,4 +84,21 @@ public class Library
             Console.WriteLine($"there is no playlist with the name {title}");
         }
     }
+    
+    public void ShowAlbums()
+    {
+        Console.WriteLine("Albums:");
+        if (albums.Count == 0)
+        {
+            Console.WriteLine("No albums found.");
+        }
+        else
+        {
+            foreach (var album in albums)
+            {
+                Console.WriteLine($"{album.albumName} ({album.ReleaseDate})");
+            }
+        }
+    }
+
 }

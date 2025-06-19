@@ -35,9 +35,9 @@ public class Song
         get{return SongGenre;}
     }
 
-    public Song( String artistName ,String songName, int songDuration, String songGenre )
+    public Song( Artist artistName ,String songName, int songDuration, String songGenre )
     {
-        String artName;
+        Artist artName;
         if (artist.artistlist.Exists(x => x == artistName))
         {
             artName = artistName;
