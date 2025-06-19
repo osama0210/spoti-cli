@@ -2,58 +2,57 @@ namespace spotiCLI;
 
 public abstract class SongCollection
 {
-    // Deze lijst slaat alle Song-objecten op.
-    // Deze is private zodat alleen deze klasse de directe toegang heeft tot de collectie.
-    private String title;
+    private string title;
     public List<Song> songs = new List<Song>();
 
-    public String Title
+    public string Title
     {
-        get { return title;}
+        get { return title; }
         set { title = value; }
     }
-    
-    
+
     public SongCollection()
     {
         songs = new List<Song>();
     }
 
-    public void AddSong(Song song)
+    // Speelt alle nummers af (simulatie)
+    public void PlayAll()
     {
-        if (songs.Any(s => s.Title.Equals(song.Title, StringComparison.OrdinalIgnoreCase)))
+        if (songs.Count == 0)
         {
-            Console.WriteLine("Error: This song is already in the collection.");
+            Console.WriteLine("Er staan geen nummers in deze collectie.");
             return;
         }
-
-        songs.Add(song);
-        Console.WriteLine($"'{song.Title}' added to the collection.");
-    }
-
-    public void RemoveSong(string title)
-    {
-        var songToRemove = songs.FirstOrDefault(s => s.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
-        if (songToRemove != null)
+        Console.WriteLine($"Alle nummers in '{Title}' worden afgespeeld:");
+        foreach (var song in songs)
         {
-            songs.Remove(songToRemove);
-            Console.WriteLine($"'{title}' is verwijderdt van de album.");
-        }
-        else
-        {
-            Console.WriteLine("Error: de song zit niet in de album.");
+            Console.WriteLine($"Afspelen: {song.Title} van {song.Artist}");
         }
     }
 
-    public void ShowAllSongs()
+    // Shufflet de nummers in de collectie
+    public void Shuffle()
     {
-        if (!songs.Any())
+        if (songs.Count == 0)
         {
-            Console.WriteLine("Geen songs in de album.");
+            Console.WriteLine("Er staan geen nummers in deze collectie.");
             return;
         }
+        var rnd = new Random();
+        songs = songs.OrderBy(x => rnd.Next()).ToList();
+        Console.WriteLine($"De nummers in '{Title}' zijn geschud.");
+    }
 
-        Console.WriteLine("Songs in de album:");
+    // Toont alle nummers in de collectie
+    public void ShowSongs()
+    {
+        if (songs.Count == 0)
+        {
+            Console.WriteLine("Er staan geen nummers in deze collectie.");
+            return;
+        }
+        Console.WriteLine($"Nummers in '{Title}':");
         foreach (var song in songs)
         {
             Console.WriteLine(song.ToString());
