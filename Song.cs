@@ -2,49 +2,49 @@ namespace spotiCLI;
 
 public class Song
 {
-    Artist artist = new Artist();
-    
-    private List<String> SongsList = new List<String>();
-    public List<String> songslist
-    {
-        get{return SongsList;}
-        set{SongsList = value;}
-    }
-    
-    
-    private String SongName;
-    public String songName
-    {
-        set{SongName = value;}
-        get{return SongName;}
-    }
-    
+    public string Title { get; set; }
+    public string Artist { get; set; }
+    public string Album { get; set; }
+    public int Year { get; set; }
+    public Genres Genre { get; set; }
+    public string Lyrics { get; set; }
+    public bool Favorite { get; set; }
 
-    private int SongDuration;
-    public int SongLength
+    public Song(string title, string artist, string album, int year, Genres genre, string lyrics = "")
     {
-        set{SongDuration = value;}
-        get{return SongDuration;}
-    }
-    
-    
-    private String SongGenre;
-    public String songGenre
-    {
-        set{SongGenre = value;}
-        get{return SongGenre;}
+        Title = title;
+        Artist = artist;
+        Album = album;
+        Year = year;
+        Genre = genre;
+        Lyrics = lyrics;
+        Favorite = false;
     }
 
-    public Song( String artistName ,String songName, int songDuration, String songGenre )
+    public static List<Song> Songs10()
     {
-        String artName;
-        if (artist.artistlist.Exists(x => x == artistName))
-        {
-            artName = artistName;
-        }
-        else
-        {
-            Console.WriteLine("ArtistName is not found in Artist List"); 
-        }
+        return new List<Song>
+      {
+        new Song("Starlit Avenue", "Nova Lane", "Midnight Drive", 2022, Genres.Pop),
+        new Song("Echoes of Tomorrow", "The Wanderers", "Future Sounds", 2021, Genres.Electronic),
+        new Song("Crimson Skies", "Scarlet Road", "Red Horizon", 2020, Genres.Rock),
+        new Song("Silent Whispers", "Luna Grey", "Moonlit Tales", 2023, Genres.Jazz),
+        new Song("Golden Leaves", "Autumn Breeze", "Seasons", 2019, Genres.Classical),
+        new Song("Neon Dreams", "Pulse City", "Electric Nights", 2024, Genres.HipHop),
+        new Song("Shadow Dance", "Velvet Mist", "Hidden Steps", 2022, Genres.RnB),
+        new Song("Frozen Time", "Arctic Flow", "Winter Chill", 2020, Genres.Metal),
+        new Song("Paper Boats", "River Song", "Drift Away", 2021, Genres.Country),
+        new Song("Sunrise Parade", "Morning Glow", "New Dawn", 2023, Genres.Pop)
+      };
+    }
+
+    public void DisplayLyrics()
+    {
+        Console.WriteLine($"tittle van {Title}:\n{Lyrics}");
+    }
+
+    public override string ToString()
+    {
+        return $"{Title} gemaakt door {Artist} van de album '{Album}' ({Year}) - Genre: {Genre}";
     }
 }

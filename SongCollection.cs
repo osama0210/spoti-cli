@@ -1,7 +1,5 @@
 namespace spotiCLI;
 
-// Deze klasse beheert een verzameling van liedjes (Song-objecten).
-// Hierin ga ik later functies toevoegen om liedjes toe te voegen, op te halen of te verwijderen.
 public abstract class SongCollection
 {
     // Deze lijst slaat alle Song-objecten op.
@@ -15,26 +13,55 @@ public abstract class SongCollection
         set { title = value; }
     }
     
-    public void PlayAll()
+    
+    public SongCollection()
     {
-        
+        songs = new List<Song>();
     }
 
-    public void Shuffle()
+    public void AddSong(Song song)
     {
-        
-    }
-
-    // Deze methode laat alle opgeslagen liedjes zien via de console.
-    // Wordt gebruikt om de collectie zichtbaar te maken voor de gebruiker.
-    public void ShowSongs()
-    {
-        foreach (Song song in this.songs)
+        if (songs.Any(s => s.Title.Equals(song.Title, StringComparison.OrdinalIgnoreCase)))
         {
-            /*Console.WriteLine(song.title);
-            Console.WriteLine(song.lyrics);
-            Console.WriteLine(song.album);
-            Console.WriteLine(song.artist);*/
+            Console.WriteLine("Error: This song is already in the collection.");
+            return;
         }
+
+        songs.Add(song);
+        Console.WriteLine($"'{song.Title}' added to the collection.");
+    }
+
+    public void RemoveSong(string title)
+    {
+        var songToRemove = songs.FirstOrDefault(s => s.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+        if (songToRemove != null)
+        {
+            songs.Remove(songToRemove);
+            Console.WriteLine($"'{title}' is verwijderdt van de album.");
+        }
+        else
+        {
+            Console.WriteLine("Error: de song zit niet in de album.");
+        }
+    }
+
+    public void ShowAllSongs()
+    {
+        if (!songs.Any())
+        {
+            Console.WriteLine("Geen songs in de album.");
+            return;
+        }
+
+        Console.WriteLine("Songs in de album:");
+        foreach (var song in songs)
+        {
+            Console.WriteLine(song.ToString());
+        }
+    }
+
+    public List<Song> GetAllSongs()
+    {
+        return songs;
     }
 }
