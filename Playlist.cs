@@ -36,9 +36,9 @@ public class Playlist : SongCollection
     public void RemoveSong()
     {
         Console.WriteLine("Voer de titel van het nummer in dat je wilt verwijderen:");
-        string title = Console.ReadLine();
+       Console.ReadLine();
         Console.WriteLine("Voer de artiest van het nummer in:");
-        string artist = Console.ReadLine();
+      Console.ReadLine();
 
         var songToRemove = songs.FirstOrDefault(s =>
             s.Title.Equals(title, StringComparison.OrdinalIgnoreCase) &&
