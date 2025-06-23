@@ -1,14 +1,18 @@
 namespace spotiCLI;
+using System.Collections.Generic;
 
 public class Artist
 {
-    private List<String> ArtistsList = new List<String>();
-    public List<String> artistlist
+    private List<Album> albums = new List<Album>();
+
+    private List<Artist> ArtistsList = new List<Artist>
+    {
+    };
+    public List<Artist> artistlist
     {
         get{return ArtistsList;}
         set{ArtistsList = value;}
     }
-    
     
     private string ArtistName;
     public string artistName
@@ -19,7 +23,7 @@ public class Artist
     
     
 
-    public void AddArtist()
+    /*public void AddArtist()
     {
         Console.WriteLine("Enter a new Artist Name to be added");
         ArtistName = Console.ReadLine();
@@ -31,9 +35,9 @@ public class Artist
         Console.WriteLine("Enter a new Artist Name to be removed");
         ArtistName = Console.ReadLine();
         ArtistsList.Remove(ArtistName.ToString());
-    }
+    }*/
 
-    public List<String> getArtists()
+    public List<Artist> getArtists()
     {
         return ArtistsList;
     }
@@ -55,6 +59,6 @@ public class Artist
     */
     public void getArtistsList()
     {
-        List<String> artists = getArtists();
+        List<Artist> artists = getArtists();
     }
 }
