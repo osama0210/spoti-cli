@@ -25,10 +25,10 @@ public abstract class SongCollection
             return;
         }
         Console.WriteLine($"Alle nummers in '{Title}' worden afgespeeld:");
-        foreach (var song in songs)
+        /*foreach (var song in songs)
         {
             Console.WriteLine($"Afspelen: {song.Title} van {song.Artist}");
-        }
+        }*/
     }
 
     // Shufflet de nummers in de collectie

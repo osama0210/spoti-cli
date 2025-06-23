@@ -35,7 +35,7 @@ public class Song
         get{return SongGenre;}
     }
 
-    public Song( String artistName ,String songName, int songDuration, String songGenre )
+    /*public Song( String artistName ,String songName, int songDuration, String songGenre )
     {
         String artName;
         if (artist.artistlist.Exists(x => x == artistName))
@@ -46,5 +46,5 @@ public class Song
         {
             Console.WriteLine("ArtistName is not found in Artist List"); 
         }
-    }
+    }*/
 }
