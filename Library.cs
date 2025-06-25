@@ -25,6 +25,26 @@ public class Library
 
     public List<Song> LikedSongs { get; set; }
 
+    // Property om alle songs uit albums en playlists te combineren
+    public List<Song> AllSongs
+    {
+        get
+        {
+            // Voeg een fallback lijst toe met voorbeeldnummers als albums en playlists leeg zijn
+            var songsFromAlbums = Albums.SelectMany(album => album.Songs);
+            var songsFromPlaylists = Playlists.SelectMany(playlist => playlist.songs);
+            var combinedSongs = songsFromAlbums.Concat(songsFromPlaylists).Distinct().ToList();
+
+            if (combinedSongs.Count == 0)
+            {
+                // Voeg voorbeeldnummers toe
+                combinedSongs = Song.Songs10();
+            }
+
+            return combinedSongs;
+        }
+    }
+
     public void ShowLibrary()
     {
         Console.WriteLine("\nYour Playlists:");

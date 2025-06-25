@@ -136,4 +136,121 @@ public class Client
         activeUser.Library.ShowAlbums();
     }
 
+    // Methode om een nummer af te spelen vanuit een playlist via console
+    public void PlaySongFromPlaylist()
+    {
+        Console.WriteLine("Voer de naam in van de playlist:");
+        string playlistName = Console.ReadLine();
+
+        var playlist = activeUser.Library.Playlists.FirstOrDefault(p => p.Title == playlistName);
+        if (playlist == null)
+        {
+            Console.WriteLine("Playlist niet gevonden.");
+            return;
+        }
+
+        Console.WriteLine("Voer de titel in van het nummer dat je wilt afspelen:");
+        string songTitle = Console.ReadLine();
+
+        playlist.PlaySong(songTitle);
+    }
+
+    // Methode om een nummer te pauzeren vanuit een playlist via console
+    public void PauseSongFromPlaylist()
+    {
+        Console.WriteLine("Voer de naam in van de playlist:");
+        string playlistName = Console.ReadLine();
+
+        var playlist = activeUser.Library.Playlists.FirstOrDefault(p => p.Title == playlistName);
+        if (playlist == null)
+        {
+            Console.WriteLine("Playlist niet gevonden.");
+            return;
+        }
+
+        playlist.PauseSong();
+    }
+
+    // Methode om een nummer te hervatten vanuit een playlist via console
+    public void ResumeSongFromPlaylist()
+    {
+        Console.WriteLine("Voer de naam in van de playlist:");
+        string playlistName = Console.ReadLine();
+
+        var playlist = activeUser.Library.Playlists.FirstOrDefault(p => p.Title == playlistName);
+        if (playlist == null)
+        {
+            Console.WriteLine("Playlist niet gevonden.");
+            return;
+        }
+
+        playlist.ResumeSong();
+    }
+
+    // Methode om een nummer toe te voegen aan een playlist via console
+    public void AddSongToPlaylist()
+    {
+        // Vraag de gebruiker om de naam van de playlist
+        Console.WriteLine("Voer de naam in van de playlist:");
+        string playlistName = Console.ReadLine();
+
+        // Zoek de playlist op basis van de naam
+        var playlist = activeUser.Library.Playlists.FirstOrDefault(p => p.Title == playlistName);
+        if (playlist == null)
+        {
+            Console.WriteLine("Playlist niet gevonden.");
+            return;
+        }
+
+        // Toon alle beschikbare nummers zodat gebruiker kan kiezen
+        Console.WriteLine("Beschikbare nummers:");
+        foreach (var song in activeUser.Library.AllSongs)
+        {
+            Console.WriteLine($"- {song.SongName}");
+        }
+
+        // Vraag de gebruiker om de naam van het nummer dat toegevoegd moet worden
+        Console.WriteLine("Voer de naam in van het nummer dat je wilt toevoegen:");
+        string songName = Console.ReadLine();
+
+        // Zoek het nummer in de volledige songlijst (bijv. in Library of SongCollection)
+        var songToAdd = activeUser.Library.AllSongs.FirstOrDefault(s => s.SongName == songName);
+        if (songToAdd == null)
+        {
+            Console.WriteLine("Nummer niet gevonden.");
+            return;
+        }
+
+        // Voeg het nummer toe aan de playlist
+        playlist.AddSong(songToAdd);
+        Console.WriteLine($"'{songName}' is toegevoegd aan playlist '{playlistName}'.");
+    }
+
+    // Methode om een nummer te verwijderen uit een playlist via console
+    public void RemoveSongFromPlaylist()
+    {
+        Console.WriteLine("Voer de naam in van de playlist:");
+        string playlistName = Console.ReadLine();
+
+        var playlist = activeUser.Library.Playlists.FirstOrDefault(p => p.Title == playlistName);
+        if (playlist == null)
+        {
+            Console.WriteLine("Playlist niet gevonden.");
+            return;
+        }
+
+        Console.WriteLine("Voer de naam in van het nummer dat je wilt verwijderen:");
+        string songName = Console.ReadLine();
+
+        var song = playlist.songs.FirstOrDefault(s => s.SongName == songName);
+        if (song == null)
+        {
+            Console.WriteLine("Nummer niet gevonden in de playlist.");
+            return;
+        }
+
+        playlist.RemoveSong(song);
+        Console.WriteLine($"'{songName}' is verwijderd uit playlist '{playlistName}'.");
+    }
+
 }

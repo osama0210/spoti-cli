@@ -6,7 +6,7 @@ class jetbProgram
     {
         Person newUser = new Person();
         Client client = new Client(newUser);
-        Artist artist = new Artist();
+        Artist artist = new Artist("");
         //Album album = new Album();
         Library library = new Library();
         //string[] artists = { "T" };
@@ -27,6 +27,11 @@ class jetbProgram
             Console.WriteLine("4. View all albums");
             Console.WriteLine("5. Add album to my library");
             Console.WriteLine("6. Exit");
+            Console.WriteLine("7. Play a song from playlist");
+            Console.WriteLine("8. Pause current song");
+            Console.WriteLine("9. Resume current song");
+            Console.WriteLine("10. Add song to playlist");
+            Console.WriteLine("11. Remove song from playlist");
             Console.WriteLine("99. delete playlist");
             Console.Write("Choose an option: ");
 
@@ -54,7 +59,21 @@ class jetbProgram
                     Console.WriteLine("Goodbye!");
                     isRunning = false;
                     break;
-                
+                case "7":
+                    client.PlaySongFromPlaylist();
+                    break;
+                case "8":
+                    client.PauseSongFromPlaylist();
+                    break;
+                case "9":
+                    client.ResumeSongFromPlaylist();
+                    break;
+                case "10":
+                    client.AddSongToPlaylist();
+                    break;
+                case "11":
+                    client.RemoveSongFromPlaylist();
+                    break;
                 case "99":
                     client.RemovePlaylistByTitle();
                     break;
