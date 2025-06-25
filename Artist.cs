@@ -13,12 +13,17 @@ public class Artist
         set{ArtistsList = value;}
     }
     
-    
-    private string ArtistName;
-    public string artistName
+    public Artist( string artistName)
     {
-        get{return ArtistName;}
-        set{ ArtistName = value; }
+        this.artistName = artistName;
+    }
+    
+    
+    private string artistName;
+    public string ArtistName
+    {
+        get{return artistName;}
+        set{ artistName = value; }
     }
     
     

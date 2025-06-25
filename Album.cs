@@ -1,86 +1,81 @@
-namespace spotiCLI;
-
-public class Album : SongCollection
+namespace spotiCLI
 {
-    
-    private List<Artist> artistlist = new List<Artist>();
-    Song song;
-    private DateTime releaseDate;
-    private string AlbumName;
-    private List<String> AlbumsList = new List<String>();
-    
-    
-    
-    
-    public List<String> albumsList
+    // Klasse die een Album voorstelt, erft van SongCollection
+    public class Album : SongCollection
     {
-        get{return AlbumsList;}
-        set{AlbumsList = value;}
-    }
-    
-    public string albumName
-    {
-        get{return AlbumName;}
-        set{ AlbumName = value; }
-    }
-    
-    public String ReleaseDate { get; set; }
-
-  
-    /*
-     *  string? artistName ,String albumName, String songName, String releaseDate
-     */
-
-
-    public Album()
-    {
-        
-    }
-
-    public Album(String AlbumName, List <Song> SongName  ,String ReleaseDate)
-    {
-        Artist artName;
-        this.Title = albumName;
-        this.songs = SongName;
-        this.ReleaseDate = ReleaseDate;
-        
-        /*if (artist.artistlist.Exists(x => x == artistName))
+        // Velden zijn protected zodat afgeleide klassen en andere in assembly toegang hebben
+        private DateTime releaseDate;
+        protected Artist artist;
+ 
+ 
+        // Geeft de releasedatum van het album terug of stelt deze in
+        public DateTime ReleaseDate
         {
-            artName = artistName;
+            get { return releaseDate; }
+            set { releaseDate = value; }
         }
-        else
+ 
+        // Geeft de artiest van het album terug of stelt deze in
+        public Artist Artist
         {
-            Console.WriteLine("ArtistName is not found in Artists List");
-        }*/
-        /*String sonName;
-        if (song.songslist.Exists(x => x == songName))
-        {
-            sonName = songName;
+            get { return artist; }
+            set { artist = value; }
         }
-        else
+ 
+        // Geeft de lijst van songs in het album terug (komt uit SongCollection)
+        public List<Song> Songs
         {
-            Console.WriteLine("SongName is not found in Songs List");
-        }*/
+            get { return songs; }
+        }
+ 
+        // Constructor om een album te maken met naam, artiest, releasedatum en lijst van songs
+        public Album(string title, Artist artist, DateTime releaseDate, List<Song> songs)
+        {
+            if (title == null) throw new ArgumentNullException(nameof(title));
+            if (artist == null) throw new ArgumentNullException(nameof(artist));
+ 
+            Artist = artist;
+            ReleaseDate = releaseDate;
+            Title = title; // Zet de Title property van SongCollection
+ 
+            // Voeg songs toe aan de songs lijst van SongCollection, voorkom null referentie
+            if (songs != null)
+            {
+                this.songs.AddRange(songs);
+            }
+        }
+ 
+        // Controleert of een song met een bepaalde titel in het album zit
+        public bool ContainsSong(string songName)
+        {
+            return Songs.Any(s => s.SongName == songName);
+        }
+ 
+        // Voegt een song toe aan het album als deze nog niet bestaat
+        public void AddSong(Song song)
+        {
+            if (!ContainsSong(song.SongName))
+            {
+                songs.Add(song);
+                Console.WriteLine($"'{song.SongName}' is toegevoegd aan het album '{Title}'.");
+            }
+        }
+ 
+        // Verwijdert een song met een bepaalde titel uit het album
+        public void RemoveSong(string songName)
+        {
+            var song = Songs.FirstOrDefault(s => s.SongName == songName);
+            if (song != null)
+            {
+                songs.Remove(song);
+                Console.WriteLine($"'{songName}' is verwijderd uit het album '{Title}'.");
+            }
+        }
+ 
+        // Geeft een stringrepresentatie van het album terug met naam, artiest, releasedatum en aantal nummers
+        public override string ToString()
+        {
+            return $"Album: {Title} door {Artist?.ArtistName ?? "Onbekend"}, Releasedatum: {ReleaseDate.ToShortDateString()}, Aantal nummers: {Songs.Count}";
+        }
     }
-
-   
-
-
-    public List<String> getAlbums()
-    {
-        return AlbumsList;
-    }
-    
-    public void getAlbumsList()
-    {
-        List<String> album = getAlbums();
-    }
-
-
-  
-    public void ShowArtists()
-    {
-        //
-    }
-    
 }

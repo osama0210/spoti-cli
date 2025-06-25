@@ -2,7 +2,7 @@ namespace spotiCLI;
 
 public class Song
 {
-    Artist artist = new Artist();
+   Artist artist = new Artist("");
     
     private List<String> SongsList = new List<String>();
     public List<String> songslist
@@ -12,8 +12,8 @@ public class Song
     }
     
     
-    private String SongName;
-    public String songName
+    private String songName;
+    public String SongName
     {
         set{SongName = value;}
         get{return SongName;}

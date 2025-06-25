@@ -9,14 +9,14 @@ public class Client
     {
         activeUser = user;
     }
-    
-    
-    
+
+
+
     public void AddPlaylist()
     {
         Console.WriteLine("Enter playlist name: ");
         String title = Console.ReadLine();
-        
+
         Console.WriteLine("Make playlist public? (y/n):");
         string isPublicInput = Console.ReadLine();
         bool isPublic;
@@ -30,13 +30,13 @@ public class Client
         }
         activeUser.Library.AddPlaylist(new Playlist(title, activeUser, isPublic));
     }
-    
+
     public void ShowAllAlbums()
     {
         Console.WriteLine("Beschikbare albums:");
         for (int i = 0; i < albums.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {albums[i].albumName} ({albums[i].ReleaseDate})");
+            Console.WriteLine($"{i + 1}. {albums[i].Title} ({albums[i].ReleaseDate})");
         }
     }
 
@@ -53,7 +53,7 @@ public class Client
                 if (!activeUser.Library.Albums.Contains(gekozenAlbum))
                 {
                     activeUser.Library.AddAlbum(gekozenAlbum);
-                    Console.WriteLine($"{gekozenAlbum.albumName} is toegevoegd aan jouw bibliotheek!");
+                    Console.WriteLine($"{gekozenAlbum.Title} is toegevoegd aan jouw bibliotheek!");
                 }
                 else
                 {
@@ -71,7 +71,7 @@ public class Client
         }
     }
 
-    
+
     /*
     public void AddAlbum()
     {
@@ -98,15 +98,20 @@ public class Client
         activeUser.Library.AddAlbum(new Album("My First Album", new List<Song>(), "2025"));
     }
     */
-    
+
     private List<Album> albums = new List<Album>
-    {
-        new Album { albumName = "SummerVibe", ReleaseDate = "2025" },
-        new Album { albumName = "WinterChill", ReleaseDate = "2024" },
-        new Album { albumName = "AutumnLeaves", ReleaseDate = "2023" }  
-    };
-    
-    
+{
+    new Album("SummerVibe", new Artist("Jane Smith"), new DateTime(2023, 6, 1),
+    new List<Song>() // Hier kun je een lijst van songs toevoegen hard coded of leeg laten
+    ),
+    new Album("WinterChill", new Artist("Unknown"), new DateTime(2023, 12, 1),
+    new List<Song>()
+    ),
+    new Album("AutumnLeaves", new Artist("John Doe"), new DateTime(2023, 10, 1),
+        new List<Song>()
+    )
+};
+
 
     public void RemovePlaylistByTitle()
     {

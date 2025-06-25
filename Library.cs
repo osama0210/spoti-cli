@@ -4,7 +4,7 @@ public class Library
 {  
     private List<Artist> artistlist = new List<Artist>
     {
-        new Artist()
+        new Artist("")
     };
     public String [] artistlist2 = { "Drake" };
     private List<Playlist> playlists = new List<Playlist>();
@@ -49,7 +49,7 @@ public class Library
         {
             foreach (var album in albums)
             {
-                Console.WriteLine($"-{album.albumName} {album.ReleaseDate}");
+                Console.WriteLine($"-{album.Title} {album.ReleaseDate}");
             }
         }
     }
@@ -96,7 +96,7 @@ public class Library
         {
             foreach (var album in albums)
             {
-                Console.WriteLine($"{album.albumName} ({album.ReleaseDate})");
+                Console.WriteLine($"{album.Title} ({album.ReleaseDate})");
             }
         }
     }
