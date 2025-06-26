@@ -43,16 +43,6 @@ feat: add search functionality
 fix: fix bug when playing music
 chore: update documentation
 
-🔃 Pull Request (PR) Rules
-Every PR must:
-
-Have a clear title
-Include a meaningful description
-Contain a link to a related Trello card or task
-
-✅ CI Requirements
-All tests must pass before a PR can be merged into develop or main.
-
 --------------------
 
 Trello Board: https://trello.com/invite/b/681c865c5512e81340ca4c89/ATTId2b227ea85cf46288d4472a8d9277802D9EA34E4/spoticli
