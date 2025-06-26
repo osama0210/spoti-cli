@@ -1,5 +1,4 @@
 namespace spotiCLI;
-using System.Collections.Generic;
 
 public class Artist
 {
@@ -14,11 +13,17 @@ public class Artist
         set{ArtistsList = value;}
     }
     
-    private string ArtistName;
-    public string artistName
+    public Artist( string artistName)
     {
-        get{return ArtistName;}
-        set{ ArtistName = value; }
+        this.artistName = artistName;
+    }
+    
+    
+    private string artistName;
+    public string ArtistName
+    {
+        get{return artistName;}
+        set{ artistName = value; }
     }
     
     
@@ -29,7 +34,7 @@ public class Artist
         ArtistName = Console.ReadLine();
         ArtistsList.Add(ArtistName);
     }
-    
+
     public void RemoveArtist()
     {
         Console.WriteLine("Enter a new Artist Name to be removed");
